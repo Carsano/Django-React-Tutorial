@@ -9,6 +9,7 @@ class UserSerializer(serializers.ModelSerializer):
         # Tells Django that we only write password when creating new user but no possibility to read the password
         extra_kwarg = {"password": {"write_only": True}}
 
-    def create(self, validated_data):
+    # Validated data will be already be validated by the serializers.ModelSerializer
+    def create(self, validated_data) -> User:
         user = User.objects.create_user(**validated_data)
         return user
