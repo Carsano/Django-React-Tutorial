@@ -10,6 +10,6 @@ class CreateUserView(generics.CreateAPIView):
     # Check all the objects before creating a User, avoid creating an User that already exists
     queryset = User.objects.all()
     # Tells the view the class need to be use to create a user
-    serializer_class = User
+    serializer_class = UserSerializer
     # Who can actually call this to create a new user
     permission_classes = [AllowAny]
