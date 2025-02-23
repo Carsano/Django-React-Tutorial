@@ -1,12 +1,13 @@
-import {Navigate} from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
+import { Navigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 import api from "../api";
 import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
 import { useState, useEffect } from "react";
 
-function ProtectedRoute({children}) {
+function ProtectedRoute({ children }) {
     // Initialize les variable à null
-    const [isAuthorized, setIsAuthorized] = useState(null)
+    const [isAuthorized, setIsAuthorized] = useState(null);
+
     // To refresh the Token
     const refreshToken = async () => {
         // Récupère le token de rafraîchissement dans le local storage
@@ -58,7 +59,8 @@ function ProtectedRoute({children}) {
             setIsAuthorized(true)
         }
     };
-    // Lancement de la vérification lros du montage du composant.
+
+        // Lancement de la vérification lros du montage du composant.
     // hook fourni par React pour gérer les effets de bors dans les composants fonctionnels.
     useEffect(() => {
         // Code a exécuter après le rendu.
@@ -66,7 +68,6 @@ function ProtectedRoute({children}) {
     },
     // tableau de dépendances, détermine quand l'effet doit être réexécuté. Si vide --> Une seule fois
     [])
-
     if (isAuthorized === null) {
         return <div>Loading...</div>
     }

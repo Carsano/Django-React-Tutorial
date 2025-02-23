@@ -1,5 +1,5 @@
 import react from "react"
-import {BrowerRouter, Routes, Route, Navigate} from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Home from "./pages/Home"
@@ -18,7 +18,7 @@ function RegisterAndLogout() {
 
 function App() {
   return (
-    <BrowerRouter>
+    <BrowserRouter>
       <Routes>
         <Route
           path="/"
@@ -27,12 +27,13 @@ function App() {
               <Home />
             </ProtectedRoute>
           }
-          />
-        <Route path="/login" element={<Login />}/>
-        <Route path="/register" element={<RegisterAndLogout />}/>
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<RegisterAndLogout />} />
         <Route path="*" element={<NotFound />}/>
       </Routes>
-    </BrowerRouter>
+    </BrowserRouter>
   )
 }
 
